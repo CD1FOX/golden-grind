@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://xfidfn44gpc8"]
+
+[ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
+
+[node name="ShopPopup" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mg8pq")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 96.0
+offset_right = 1267.0
+offset_bottom = 744.0
+scale = Vector2(0.8, 0.8)
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 851.0
+offset_bottom = 107.0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="Speed" type="Label" parent="Panel/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Upgrade Speed (Level 0 ➡️ Level 1): "
+
+[node name="UpgradeButton" type="Button" parent="Panel/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Coins"
+
+[connection signal="pressed" from="Panel/GridContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

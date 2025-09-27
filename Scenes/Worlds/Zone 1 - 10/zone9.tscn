@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmwkiv62w6q7h"]
+
+[ext_resource type="PackedScene" uid="uid://bqgupc5q011e8" path="res://Scenes/Logic/Coin Spawner/coin_spawner.tscn" id="1_vw2uv"]
+[ext_resource type="PackedScene" uid="uid://dd64hgbnd46mj" path="res://Scenes/Entitys/Player/player.tscn" id="2_cglpy"]
+[ext_resource type="PackedScene" uid="uid://bm6tvdknmjfn2" path="res://Scenes/UI/Main Screen/Upper UI/upper_ui.tscn" id="3_yb2io"]
+
+[node name="Zone1" type="Node2D"]
+
+[node name="Logic" type="Node2D" parent="."]
+
+[node name="CoinSpawner" parent="Logic" instance=ExtResource("1_vw2uv")]
+modulate = Color(0.13333334, 0.19215687, 0.24705882, 1)
+
+[node name="Entitys" type="Node2D" parent="."]
+
+[node name="Player" parent="Entitys" instance=ExtResource("2_cglpy")]
+position = Vector2(564, 337)
+
+[node name="UpperUI" parent="." instance=ExtResource("3_yb2io")]
