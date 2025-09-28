@@ -8,3 +8,4 @@ var speed_level = 1
 
 var last_zone_level = 1
 var current_zone_level = 1
+var zone_price = 500

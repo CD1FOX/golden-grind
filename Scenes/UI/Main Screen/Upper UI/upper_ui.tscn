@@ -31,6 +31,18 @@ offset_right = 717.0
 offset_bottom = 55.0
 text = "Buy New Zone"
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="BuyZone"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(350, 150)
+ok_button_text = "Confirm"
+dialog_text = "Buy new zone for 500 Coins?"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="BuyZone"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(350, 150)
+
 [node name="Menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 956.0
@@ -82,3 +94,4 @@ layout_mode = 0
 
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="BuyZone" to="." method="_on_buy_zone_pressed"]
+[connection signal="confirmed" from="BuyZone/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
