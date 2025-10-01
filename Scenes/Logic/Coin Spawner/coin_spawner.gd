@@ -22,6 +22,7 @@ func _on_coin_spawner_timer_timeout() -> void:
 	if valid:
 		var coin = coin_scene.instantiate()
 		coin.position = spawn_pos
+		coin.add_to_group("coin")
 		get_parent().add_child(coin)
 	else:
 		print("⚠ No valid position found after", max_tries, "tries")

@@ -13,3 +13,9 @@ func _physics_process(_delta: float) -> void:
 	
 	position.x = clamp(position.x, 20, (screen_size.x - 20))
 	position.y = clamp(position.y, 85, (screen_size.y - 20))
+
+
+func _on_magnet_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coin"):
+		Global.coin += 1
+		area.queue_free()

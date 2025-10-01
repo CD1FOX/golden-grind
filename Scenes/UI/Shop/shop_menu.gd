@@ -1,7 +1,9 @@
 extends Control
 
-@onready var speed_label = $Panel/GridContainer/Speed
-@onready var speed_button = $Panel/GridContainer/UpgradeButton
+@onready var speed_label = $Panel/VBoxContainer/Speed/Speed
+@onready var speed_button = $Panel/VBoxContainer/Speed/SpeedUpgradeButton
+
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Open Shop"):
@@ -11,7 +13,11 @@ func _process(_delta: float) -> void:
 	speed_button.text = "%d Coins" % Global.speed_cost
 	
 
-func _on_upgrade_button_pressed() -> void:
+func _on_magnet_upgrade_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_speed_upgrade_button_pressed() -> void:
 	if Global.coin >= Global.speed_cost:
 		Global.coin -= Global.speed_cost
 		Global.speed_level += 1
