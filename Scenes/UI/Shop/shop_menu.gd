@@ -3,6 +3,8 @@ extends Control
 @onready var speed_label = $Panel/VBoxContainer/Speed/Speed
 @onready var speed_button = $Panel/VBoxContainer/Speed/SpeedUpgradeButton
 
+@onready var magnet_label = $Panel/VBoxContainer/Magnet/Magnet
+@onready var magnet_button = $Panel/VBoxContainer/Magnet/MagnetUpgradeButton
 
 
 func _process(_delta: float) -> void:
@@ -12,10 +14,16 @@ func _process(_delta: float) -> void:
 	speed_label.text = "Upgrade Speed (Level %d ➡️ Level %d): " % [Global.speed_level, Global.speed_level + 1]
 	speed_button.text = "%d Coins" % Global.speed_cost
 	
+	magnet_label.text = "Upgrade Magnet Radius (Level %d ➡️ Level %d): " % [Global.magnet_level, Global.magnet_level + 1]
+	speed_button.text = "%d Coins" % Global.speed_cost
+	
 
 func _on_magnet_upgrade_button_pressed() -> void:
-	pass # Replace with function body.
-
+	if Global.coin >= Global.magnet_cost:
+		Global.coin -= Global.magnet_cost
+		Global.magnet_level += 1
+		Global.speed_cost = int(Global.magnet_base_cost * pow(1.5, Global.magnet_level))
+		Global.magnet_radius = Vector2((Global.magnet_radius.x + 1.0), (Global.magnet_radius.y + 1.0))
 
 func _on_speed_upgrade_button_pressed() -> void:
 	if Global.coin >= Global.speed_cost:

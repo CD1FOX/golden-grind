@@ -1,9 +1,17 @@
 extends CharacterBody2D
 
 var speed 
+var magnet_radius
+
+@onready var magnet_radius_area = $Magnet/CollisionShape2D
 
 func _physics_process(_delta: float) -> void:
 	speed = Global.speed
+	magnet_radius = Global.magnet_radius
+	
+	print(magnet_radius_area.scale)
+	
+	magnet_radius_area.scale = magnet_radius
 	
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = direction * speed
