@@ -50,5 +50,19 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
+[node name="CoinValueUpgrade" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/CoinValueUpgrade"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Upgrade Coin Value (Level 0 ➡️ Level 1): "
+
+[node name="CoinValueButton" type="Button" parent="Panel/VBoxContainer/CoinValueUpgrade"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Coins"
+
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetUpgradeButton" to="." method="_on_magnet_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CoinValueUpgrade/CoinValueButton" to="." method="_on_coin_value_button_pressed"]

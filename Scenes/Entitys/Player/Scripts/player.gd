@@ -25,5 +25,5 @@ func _physics_process(_delta: float) -> void:
 
 func _on_magnet_area_entered(area: Area2D) -> void:
 	if area.is_in_group("coin"):
-		Global.coin += 1
+		Global.coin += Global.coin_value
 		area.queue_free()
