@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd64hgbnd46mj"]
+[gd_scene load_steps=6 format=3 uid="uid://dd64hgbnd46mj"]
 
 [ext_resource type="Script" uid="uid://b6mcg5s5ia7yp" path="res://Scenes/Entitys/Player/Scripts/player.gd" id="1_f454u"]
-[ext_resource type="PackedScene" uid="uid://0mkcgkl32lg" path="res://Scenes/Logic/Skills/Magnet Skill/magnet_skill.tscn" id="2_44pxb"]
+[ext_resource type="Script" uid="uid://bgdgdqn2jtur" path="res://Scenes/Entitys/Player/Scripts/Skills/Magnet Skill/magnet_skill.gd" id="2_44pxb"]
+[ext_resource type="Script" uid="uid://7x2pa24bo88b" path="res://Scenes/Entitys/Player/Scripts/Skills/Auto Collect/auto_collect.gd" id="3_d5si0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44pxb"]
 size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5si0"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_f454u")
@@ -19,4 +22,14 @@ color = Color(0.11764706, 0.5647059, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_44pxb")
 
-[node name="MagnetSkill" parent="." instance=ExtResource("2_44pxb")]
+[node name="Skills" type="Node2D" parent="."]
+
+[node name="MagnetSkill" type="Area2D" parent="Skills"]
+script = ExtResource("2_44pxb")
+
+[node name="MagnetRadius" type="CollisionShape2D" parent="Skills/MagnetSkill"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_d5si0")
+
+[node name="AutoCollect" type="Node2D" parent="Skills"]
+script = ExtResource("3_d5si0")
