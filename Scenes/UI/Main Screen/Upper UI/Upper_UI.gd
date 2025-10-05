@@ -43,6 +43,3 @@ func _on_confirmation_dialog_confirmed() -> void:
 	else:
 		accept_dialog.dialog_text = "Not enough coins! (need %d coins more)" % (G.coin - G.zone_price)
 		accept_dialog.visible = true
-
-func _on_check_button_pressed() -> void:
-	G.auto_collect = !G.auto_collect

@@ -83,15 +83,6 @@ text = "Zone: 1"
 [node name="ShopPopup" parent="." instance=ExtResource("2_0jxpd")]
 layout_mode = 0
 
-[node name="CheckButton" type="CheckButton" parent="."]
-layout_mode = 0
-offset_left = 169.0
-offset_top = 2.0
-offset_right = 304.0
-offset_bottom = 33.0
-text = "Auto colect"
-
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="BuyZone" to="." method="_on_buy_zone_pressed"]
 [connection signal="confirmed" from="BuyZone/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
-[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]

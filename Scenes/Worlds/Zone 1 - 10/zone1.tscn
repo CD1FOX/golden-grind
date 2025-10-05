@@ -40,13 +40,15 @@ offset_top = 3.0
 offset_right = 157.0
 offset_bottom = 27.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SideUI/Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="CheckButton" type="CheckButton" parent="SideUI/Panel/VBoxContainer/HBoxContainer"]
+[node name="Magnet" type="CheckButton" parent="SideUI/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Magnet Coins"
+
+[node name="AutoCollect" type="CheckButton" parent="SideUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Auto colect"
 
 [node name="VisibilityButton" type="Button" parent="SideUI"]
 layout_mode = 0
@@ -57,5 +59,6 @@ offset_bottom = 136.0
 toggle_mode = true
 text = ">"
 
-[connection signal="pressed" from="SideUI/Panel/VBoxContainer/HBoxContainer/CheckButton" to="SideUI" method="_on_check_button_pressed"]
+[connection signal="pressed" from="SideUI/Panel/VBoxContainer/Magnet" to="SideUI" method="_on_magnet_pressed"]
+[connection signal="pressed" from="SideUI/Panel/VBoxContainer/AutoCollect" to="SideUI" method="_on_auto_collect_pressed"]
 [connection signal="toggled" from="SideUI/VisibilityButton" to="SideUI" method="_on_visibility_button_toggled"]
