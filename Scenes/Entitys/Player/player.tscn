@@ -1,11 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd64hgbnd46mj"]
 
 [ext_resource type="Script" uid="uid://b6mcg5s5ia7yp" path="res://Scenes/Entitys/Player/Scripts/player.gd" id="1_f454u"]
+[ext_resource type="PackedScene" uid="uid://0mkcgkl32lg" path="res://Scenes/Logic/Skills/Magnet Skill/magnet_skill.tscn" id="2_44pxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44pxb"]
 size = Vector2(40, 40)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_f454u"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_f454u")
@@ -20,10 +19,4 @@ color = Color(0.11764706, 0.5647059, 1, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_44pxb")
 
-[node name="Magnet" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_f454u")
-
-[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
+[node name="MagnetSkill" parent="." instance=ExtResource("2_44pxb")]

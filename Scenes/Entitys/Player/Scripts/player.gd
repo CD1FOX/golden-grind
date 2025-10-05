@@ -1,34 +1,21 @@
 extends CharacterBody2D
 
-var speed 
-var magnet_radius
-
-@onready var magnet_radius_area = $Magnet/CollisionShape2D
+@onready var G = Global
 
 func _physics_process(_delta: float) -> void:
 	if Global.auto_collect:
 		var target = get_nearest_coin()
 		if target:
-			position = position.move_toward(target.global_position, speed * _delta)
-	
-	speed = Global.speed
-	magnet_radius = Global.magnet_radius
-	magnet_radius_area.scale = magnet_radius
-	
+			position = position.move_toward(target.global_position, G.speed * _delta)
+
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	velocity = direction * speed
+	velocity = direction * G.speed
 	move_and_slide()
 	
 	var screen_size = get_viewport_rect().size
 	
 	position.x = clamp(position.x, 20, (screen_size.x - 20))
 	position.y = clamp(position.y, 85, (screen_size.y - 20))
-
-
-func _on_magnet_area_entered(area: Area2D) -> void:
-	if area.is_in_group("coin"):
-		Global.multiplier_distributer(area)
-		
 
 func get_nearest_coin():
 	var nearest_area = null
