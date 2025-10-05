@@ -26,3 +26,32 @@ var coin_value_upgrade_base_cost = 10
 
 #Auto Collector
 var auto_collect = false
+
+#Coin Crit Chance
+var critical_chances = {
+	5: 20,
+	10: 10,
+	50: 3,
+	100: 1
+}
+
+func get_critical_multiplier():
+	var roll = randf() * 100
+	var cumulative = 1.0
+	
+	for multiplier in critical_chances.keys():
+		cumulative += critical_chances[multiplier]
+		if roll < cumulative:
+			return multiplier
+			
+	return Global.coin_value
+
+func multiplier_distributer(coin_area):
+	var multiplier = get_critical_multiplier()
+	var gained = coin_value * multiplier
+	coin += gained
+		
+	if multiplier > 1:
+		print("💥 CRITICAL PICKUP ×%d! +%d coins" % [multiplier, gained])
+		
+	coin_area.queue_free()
