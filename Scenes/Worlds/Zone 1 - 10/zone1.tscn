@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cadcj3hs4f6da"]
+[gd_scene load_steps=5 format=3 uid="uid://cadcj3hs4f6da"]
 
 [ext_resource type="PackedScene" uid="uid://bqgupc5q011e8" path="res://Scenes/Logic/Coin Spawner/coin_spawner.tscn" id="1_i0411"]
 [ext_resource type="PackedScene" uid="uid://dd64hgbnd46mj" path="res://Scenes/Entitys/Player/player.tscn" id="2_qp65r"]
 [ext_resource type="PackedScene" uid="uid://bm6tvdknmjfn2" path="res://Scenes/UI/Main Screen/Upper UI/upper_ui.tscn" id="3_4sxuh"]
+[ext_resource type="Script" uid="uid://ba4h2yt4enqw5" path="res://Scenes/UI/Main Screen/Side Bar/side_ui.gd" id="4_i0411"]
 
 [node name="Zone1" type="Node2D"]
 
@@ -17,3 +18,44 @@ modulate = Color(0, 0.12156863, 0.24705882, 1)
 position = Vector2(564, 337)
 
 [node name="UpperUI" parent="." instance=ExtResource("3_4sxuh")]
+
+[node name="SideUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_i0411")
+
+[node name="Panel" type="Panel" parent="SideUI"]
+layout_mode = 0
+offset_left = 1002.0
+offset_top = 105.0
+offset_right = 1152.0
+offset_bottom = 608.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideUI/Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 157.0
+offset_bottom = 27.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SideUI/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="SideUI/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Magnet Coins"
+
+[node name="VisibilityButton" type="Button" parent="SideUI"]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 105.0
+offset_right = 1002.0
+offset_bottom = 136.0
+toggle_mode = true
+text = ">"
+
+[connection signal="pressed" from="SideUI/Panel/VBoxContainer/HBoxContainer/CheckButton" to="SideUI" method="_on_check_button_pressed"]
+[connection signal="toggled" from="SideUI/VisibilityButton" to="SideUI" method="_on_visibility_button_toggled"]

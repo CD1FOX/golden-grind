@@ -33,3 +33,5 @@ shape = SubResource("CircleShape2D_d5si0")
 
 [node name="AutoCollect" type="Node2D" parent="Skills"]
 script = ExtResource("3_d5si0")
+
+[connection signal="area_entered" from="Skills/MagnetSkill" to="Skills/MagnetSkill" method="_on_area_entered"]

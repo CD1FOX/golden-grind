@@ -20,4 +20,3 @@ func get_nearest_coin():
 				nearest_distance = distance
 				nearest_area = area
 	return nearest_area
-	

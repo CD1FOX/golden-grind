@@ -9,7 +9,6 @@ extends Control
 @onready var coin_value_label = $Panel/VBoxContainer/CoinValueUpgrade/CoinValue
 @onready var coin_value_button = $Panel/VBoxContainer/CoinValueUpgrade/CoinValueButton
 
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Open Shop"):
 		visible = !visible
@@ -23,7 +22,6 @@ func _process(_delta: float) -> void:
 	coin_value_label.text = "Upgrade Coin Value (%d Coin ➡️ %d Coin): " % [Global.coin_value, Global.coin_value + 1]
 	coin_value_button.text = "%d Coins" % Global.coin_value_upgrade_cost
 	
-
 func _on_magnet_upgrade_button_pressed() -> void:
 	if Global.coin >= Global.magnet_cost:
 		Global.coin -= Global.magnet_cost
@@ -47,3 +45,5 @@ func _on_coin_value_button_pressed() -> void:
 		Global.coin -= Global.coin_value_upgrade_cost
 		Global.coin_value += 1
 		Global.coin_value_upgrade_cost = int(Global.coin_value_upgrade_base_cost * pow(1.5, Global.coin_value))
+	else:
+		print("Not Enough Coins")

@@ -12,6 +12,7 @@ var magnet_radius = Vector2(3.0, 3.0)
 var magnet_level = 1
 var magnet_cost = 10
 var magnet_base_cost = 10
+var magnet_skill = false
 
 #Speed Type Skill
 var speed = 80
