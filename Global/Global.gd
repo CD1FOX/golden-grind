@@ -23,3 +23,6 @@ var speed_level = 1
 var coin_value = 1
 var coin_value_upgrade_cost = 10
 var coin_value_upgrade_base_cost = 10
+
+#Auto Collector
+var auto_collect = false

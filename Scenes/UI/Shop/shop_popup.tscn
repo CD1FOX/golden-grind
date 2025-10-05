@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
 
 [node name="ShopPopup" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

@@ -6,6 +6,7 @@ var min_distance = 50.0
 var max_tries = 10
 
 
+
 func _on_coin_spawner_timer_timeout() -> void:
 	var spawn_pos
 	var valid
@@ -33,3 +34,4 @@ func is_position_valid(pos: Vector2):
 			if pos.distance_to(child.position) < min_distance:
 				return false
 	return true
+	

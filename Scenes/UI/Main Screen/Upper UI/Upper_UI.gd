@@ -2,7 +2,6 @@ extends Control
 
 @onready var coin_label = $Coins
 @onready var speed_label = $Speed
-@onready var speed_level_label = $SpeedLevel
 @onready var zone_level = $Zone
 @onready var shop_popup = $ShopPopup
 @onready var confirmation_dialog = $BuyZone/ConfirmationDialog
@@ -11,7 +10,6 @@ extends Control
 func _process(_delta: float) -> void: 
 	coin_label.text = "Coins: %d" % Global.coin
 	speed_label.text = "Speed: %d" % Global.speed
-	speed_level_label.text = "Speed Level: %d" % Global.speed_level
 	zone_level.text = "Zone: %d" % Global.current_zone_level
 	confirmation_dialog.dialog_text = "Buy new zone for %d Coins?" % Global.zone_price
 
@@ -44,3 +42,7 @@ func _on_confirmation_dialog_confirmed() -> void:
 	else:
 		accept_dialog.dialog_text = "Not enough coins! (need %d coins more)" % (Global.coin - Global.zone_price)
 		accept_dialog.visible = true
+
+
+func _on_check_button_pressed() -> void:
+	Global.auto_collect = !Global.auto_collect
