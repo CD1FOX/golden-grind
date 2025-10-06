@@ -1,5 +1,7 @@
 extends Control
 
+@onready var G = Global
+
 @onready var speed_label = $Panel/VBoxContainer/Speed/Speed
 @onready var speed_button = $Panel/VBoxContainer/Speed/SpeedUpgradeButton
 
@@ -13,37 +15,38 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Open Shop"):
 		visible = !visible
 	
-	speed_label.text = "Upgrade Speed (Level %d ➡️ Level %d): " % [Global.speed_level, Global.speed_level + 1]
-	speed_button.text = "%d Coins" % Global.speed_cost
+	update_label(speed_label, speed_button, "Speed", G.speed_level, G.speed_cost)
+	update_label(magnet_label, magnet_button, "Magnet Radius", G.magnet_level, G.magnet_cost)
+	update_label(coin_value_label, coin_value_button, "Coin Value", G.coin_value, G.coin_value_upgrade_cost)
+
+func update_label(label_node: Label, button_node: Button, upgrade_name: String, current_level: int, cost: int) -> void:
+	label_node.text = "Upgrade %s (Level %d ➡️ Level %d): " % [upgrade_name, current_level, current_level + 1]
+	button_node.text = "%d Coins" % cost
+
 	
-	magnet_label.text = "Upgrade Magnet Radius (Level %d ➡️ Level %d): " % [Global.magnet_level, Global.magnet_level + 1]
-	magnet_button.text = "%d Coins" % Global.magnet_cost
-	
-	coin_value_label.text = "Upgrade Coin Value (%d Coin ➡️ %d Coin): " % [Global.coin_value, Global.coin_value + 1]
-	coin_value_button.text = "%d Coins" % Global.coin_value_upgrade_cost
-	
+
 func _on_magnet_upgrade_button_pressed() -> void:
-	if Global.coin >= Global.magnet_cost:
-		Global.coin -= Global.magnet_cost
-		Global.magnet_level += 1
-		Global.speed_cost = int(Global.magnet_base_cost * pow(1.5, Global.magnet_level))
-		Global.magnet_radius = Vector2((Global.magnet_radius.x + 1.0), (Global.magnet_radius.y + 1.0))
+	if G.coin >= G.magnet_cost:
+		G.coin -= G.magnet_cost
+		G.magnet_level += 1
+		G.speed_cost = int(G.magnet_base_cost * pow(1.5, G.magnet_level))
+		G.magnet_radius = Vector2((G.magnet_radius.x + 1.0), (G.magnet_radius.y + 1.0))
 	else:
 		print("Not Enough Coins")
 
 func _on_speed_upgrade_button_pressed() -> void:
-	if Global.coin >= Global.speed_cost:
-		Global.coin -= Global.speed_cost
-		Global.speed_level += 1
-		Global.speed_cost = int(Global.speed_base_cost * pow(1.5, Global.speed_level))
-		Global.speed += 20
+	if G.coin >= G.speed_cost:
+		G.coin -= G.speed_cost
+		G.speed_level += 1
+		G.speed_cost = int(G.speed_base_cost * pow(1.5, G.speed_level))
+		G.speed += 20
 	else:
 		print("Not Enough Coins")
 
 func _on_coin_value_button_pressed() -> void:
-	if Global.coin >= Global.coin_value_upgrade_cost:
-		Global.coin -= Global.coin_value_upgrade_cost
-		Global.coin_value += 1
-		Global.coin_value_upgrade_cost = int(Global.coin_value_upgrade_base_cost * pow(1.5, Global.coin_value))
+	if G.coin >= G.coin_value_upgrade_cost:
+		G.coin -= G.coin_value_upgrade_cost
+		G.coin_value += 1
+		G.coin_value_upgrade_cost = int(G.coin_value_upgrade_base_cost * pow(1.5, G.coin_value))
 	else:
 		print("Not Enough Coins")
