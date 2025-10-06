@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xfidfn44gpc8"]
+[gd_scene load_steps=4 format=3 uid="uid://xfidfn44gpc8"]
 
 [ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
 [ext_resource type="Script" uid="uid://cnkqsbfx5wb81" path="res://Scenes/UI/Shop/speed.gd" id="2_uouxp"]
 [ext_resource type="Script" uid="uid://c35fyp3eimwu0" path="res://Scenes/UI/Shop/magnet.gd" id="3_fodhl"]
-[ext_resource type="Script" uid="uid://cmnsfvrdpqpw2" path="res://Scenes/UI/Shop/coin_value.gd" id="4_mp1tc"]
 
 [node name="ShopPopup" type="Control"]
 layout_mode = 3
@@ -28,7 +27,6 @@ offset_right = 674.0
 offset_bottom = 90.0
 
 [node name="SpeedPrototype" type="HBoxContainer" parent="Panel/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Speed" type="Label" parent="Panel/VBoxContainer/SpeedPrototype"]
@@ -42,6 +40,7 @@ theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
 [node name="Speed" type="HBoxContainer" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("2_uouxp")
 
@@ -56,6 +55,7 @@ theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
 [node name="Magnet" type="HBoxContainer" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("3_fodhl")
 
@@ -69,20 +69,19 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
-[node name="CoinValue" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="CoinValueUpgrade" type="HBoxContainer" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
-script = ExtResource("4_mp1tc")
 
-[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/CoinValue"]
+[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/CoinValueUpgrade"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Upgrade Coin Value (Level 0 ➡️ Level 1): "
 
-[node name="CoinValueButton" type="Button" parent="Panel/VBoxContainer/CoinValue"]
+[node name="CoinValueButton" type="Button" parent="Panel/VBoxContainer/CoinValueUpgrade"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedButton" to="Panel/VBoxContainer/Speed" method="_on_speed_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueButton" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CoinValueUpgrade/CoinValueButton" to="." method="_on_coin_value_button_pressed"]
