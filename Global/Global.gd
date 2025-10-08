@@ -14,17 +14,23 @@ var magnet_cost = 10
 var magnet_base_cost = 10
 var magnet_skill = false
 
+#Magnet Lock Level Limits
+var magnet_unlock_cost = 1000
+var magnet_unlock_base_cost = 1000
+var magnet_tier_list = 0
+var magnet_tier_limit = 0
+
 #Speed Type Skill
 var speed = 80
 var speed_cost = 10
 var speed_base_cost = 10
 var speed_level = 1
 
-#Speed Unlock Level Limits
+#Speed Lock Level Limits
 var speed_unlock_cost = 500
 var speed_unlock_base_cost = 500
-var tier_list = 0
-var tier_limit = 0
+var speed_tier_list = 0
+var speed_tier_limit = 0
 
 #Coin Value Upgrade
 var coin_value = 1
