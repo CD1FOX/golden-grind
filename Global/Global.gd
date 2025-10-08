@@ -1,6 +1,6 @@
 extends Node
 
-var coin = 10
+var coin = 500000
 
 #Zones
 var last_zone_level = 1
@@ -19,6 +19,12 @@ var speed = 80
 var speed_cost = 10
 var speed_base_cost = 10
 var speed_level = 1
+
+#Speed Unlock Level Limits
+var speed_unlock_cost = 500
+var speed_unlock_base_cost = 500
+var tier_list = 0
+var tier_limit = 0
 
 #Coin Value Upgrade
 var coin_value = 1

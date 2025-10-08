@@ -28,7 +28,6 @@ func _on_confirmation_dialog_confirmed() -> void:
 		G.current_zone_level += 1
 	
 		if G.current_zone_level != G.last_zone_level:
-			# figure out which folder the zone belongs to
 			var group_size = 10
 			var start = int(floor((G.current_zone_level - 1) / group_size) * group_size + 1)
 			var end = start + group_size - 1

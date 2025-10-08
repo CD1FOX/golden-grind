@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xfidfn44gpc8"]
 
 [ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
-[ext_resource type="Script" uid="uid://cnkqsbfx5wb81" path="res://Scenes/UI/Shop/speed.gd" id="2_uouxp"]
+[ext_resource type="Script" uid="uid://cmlfs7idffrlk" path="res://Scenes/UI/Shop/speed.gd" id="2_riy28"]
 [ext_resource type="Script" uid="uid://c35fyp3eimwu0" path="res://Scenes/UI/Shop/magnet.gd" id="3_fodhl"]
 [ext_resource type="Script" uid="uid://cmnsfvrdpqpw2" path="res://Scenes/UI/Shop/coin_value.gd" id="4_mp1tc"]
 
@@ -27,30 +27,22 @@ offset_top = 40.0
 offset_right = 674.0
 offset_bottom = 90.0
 
-[node name="SpeedPrototype" type="HBoxContainer" parent="Panel/VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="Speed" type="Label" parent="Panel/VBoxContainer/SpeedPrototype"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Unlock Speed Upgrade Level 1 - 5: "
-
-[node name="SpeedUpgradeButton" type="Button" parent="Panel/VBoxContainer/SpeedPrototype"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "10 Coins"
-
 [node name="Speed" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("2_uouxp")
+script = ExtResource("2_riy28")
 
 [node name="Speed" type="Label" parent="Panel/VBoxContainer/Speed"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Upgrade Speed (Level 0 ➡️ Level 1): "
+text = "Unlock Speed Level 1 - 5 Upgrade: "
 
-[node name="SpeedButton" type="Button" parent="Panel/VBoxContainer/Speed"]
+[node name="SpeedUpgradeButton" type="Button" parent="Panel/VBoxContainer/Speed"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Coins"
+
+[node name="SpeedUnlockButton" type="Button" parent="Panel/VBoxContainer/Speed"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
@@ -83,6 +75,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
-[connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedButton" to="Panel/VBoxContainer/Speed" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUpgradeButton" to="Panel/VBoxContainer/Speed" method="_on_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUnlockButton" to="Panel/VBoxContainer/Speed" method="_on_speed_unlock_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueButton" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_button_pressed"]
