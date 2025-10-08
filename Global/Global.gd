@@ -37,6 +37,12 @@ var coin_value = 1
 var coin_value_upgrade_cost = 10
 var coin_value_upgrade_base_cost = 10
 
+#Coin Value Lock Level Limits
+var coin_unlock_cost = 500
+var coin_unlock_base_cost = 500
+var coin_tier_list = 0
+var coin_tier_limit = 0
+
 #Auto Collector
 var auto_collect = false
 

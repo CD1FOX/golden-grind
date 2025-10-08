@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
 [ext_resource type="Script" uid="uid://cmlfs7idffrlk" path="res://Scenes/UI/Shop/speed.gd" id="2_riy28"]
 [ext_resource type="Script" uid="uid://d3ct103u50622" path="res://Scenes/UI/Shop/magnet.gd" id="3_riy28"]
-[ext_resource type="Script" uid="uid://cmnsfvrdpqpw2" path="res://Scenes/UI/Shop/coin_value.gd" id="4_mp1tc"]
+[ext_resource type="Script" uid="uid://db8x4gsw35nl5" path="res://Scenes/UI/Shop/coin_value.gd" id="4_riy28"]
 
 [node name="ShopPopup" type="Control"]
 layout_mode = 3
@@ -47,6 +47,32 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10 Coins"
 
+[node name="CoinValue" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_riy28")
+
+[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/CoinValue"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unlock  Coin Vlaue Upgrade: "
+
+[node name="CoinValueUpgrade" type="Button" parent="Panel/VBoxContainer/CoinValue"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Coins"
+
+[node name="CoinValueUnlockButton" type="Button" parent="Panel/VBoxContainer/CoinValue"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10 Coins"
+
+[node name="CoinValueFirstUnlockButton" type="Button" parent="Panel/VBoxContainer/CoinValue"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "500 Coins"
+
 [node name="Magnet" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_riy28")
@@ -71,25 +97,13 @@ text = "10 Coins"
 [node name="MagnetFirstUnlock" type="Button" parent="Panel/VBoxContainer/Magnet"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "10 Coins"
-
-[node name="CoinValue" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-script = ExtResource("4_mp1tc")
-
-[node name="CoinValue" type="Label" parent="Panel/VBoxContainer/CoinValue"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Upgrade Coin Value (Level 0 ➡️ Level 1): "
-
-[node name="CoinValueButton" type="Button" parent="Panel/VBoxContainer/CoinValue"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "10 Coins"
+text = "5000 Coins"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUpgradeButton" to="Panel/VBoxContainer/Speed" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUnlockButton" to="Panel/VBoxContainer/Speed" method="_on_speed_unlock_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueUpgrade" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_upgrade_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueUnlockButton" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_unlock_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueFirstUnlockButton" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_first_unlock_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetUpgradeButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetUnlockButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_unlock_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetFirstUnlock" to="Panel/VBoxContainer/Magnet" method="_on_magnet_first_unlock_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueButton" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_button_pressed"]

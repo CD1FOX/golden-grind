@@ -9,7 +9,7 @@ extends HBoxContainer
 
 func _process(_delta: float) -> void:
 	if G.magnet_tier_list == 0:
-		magnet_label.text = "Unlock  Magnet Skill: " 
+		magnet_label.text = "Unlock Magnet Skill: " 
 		magnet_first_unlock_button.text = "5000 Coins"
 	elif G.magnet_level >= G.magnet_tier_limit:
 		magnet_label.text = "Unlock Magnet Level %d - %d Upgrade (Tier: %d): " % [G.magnet_tier_limit + 1, G.magnet_tier_limit + 5, G.magnet_tier_list]
