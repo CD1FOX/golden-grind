@@ -45,6 +45,7 @@ func _on_magnet_unlock_button_pressed() -> void:
 func _on_magnet_first_unlock_pressed() -> void:
 	if G.coin >= 5000:
 		G.coin -= 5000
+		G.magnet_purchase = true
 		G.magnet_tier_limit += 5
 		G.magnet_tier_list += 1
 	else:

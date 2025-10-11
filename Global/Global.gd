@@ -13,6 +13,7 @@ var magnet_level = 1
 var magnet_cost = 10
 var magnet_base_cost = 10
 var magnet_skill = false
+var magnet_purchase = false
 
 #Magnet Lock Level Limits
 var magnet_unlock_cost = 1000
@@ -45,6 +46,8 @@ var coin_tier_limit = 0
 
 #Auto Collector
 var auto_collect = false
+var auto_collect_purchase = false
+var auto_collect_price = 20000
 
 #Coin Crit Chance
 var critical_chances = {

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xfidfn44gpc8"]
+[gd_scene load_steps=6 format=3 uid="uid://xfidfn44gpc8"]
 
 [ext_resource type="Script" uid="uid://6wo25b6qnn60" path="res://Scenes/UI/Shop/shop_menu.gd" id="1_mg8pq"]
 [ext_resource type="Script" uid="uid://cmlfs7idffrlk" path="res://Scenes/UI/Shop/speed.gd" id="2_riy28"]
 [ext_resource type="Script" uid="uid://d3ct103u50622" path="res://Scenes/UI/Shop/magnet.gd" id="3_riy28"]
 [ext_resource type="Script" uid="uid://db8x4gsw35nl5" path="res://Scenes/UI/Shop/coin_value.gd" id="4_riy28"]
+[ext_resource type="Script" uid="uid://dwqg77c1lhf5e" path="res://Scenes/UI/Shop/auto_collect.gd" id="5_riy28"]
 
 [node name="ShopPopup" type="Control"]
 layout_mode = 3
@@ -99,6 +100,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "5000 Coins"
 
+[node name="AutoCollect" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_riy28")
+
+[node name="AutoCollect" type="Label" parent="Panel/VBoxContainer/AutoCollect"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Unlock  Auto Collect Skill: "
+
+[node name="AutoCollectUnlock" type="Button" parent="Panel/VBoxContainer/AutoCollect"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "20000 Coins"
+
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUpgradeButton" to="Panel/VBoxContainer/Speed" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Speed/SpeedUnlockButton" to="Panel/VBoxContainer/Speed" method="_on_speed_unlock_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/CoinValue/CoinValueUpgrade" to="Panel/VBoxContainer/CoinValue" method="_on_coin_value_upgrade_pressed"]
@@ -107,3 +122,4 @@ text = "5000 Coins"
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetUpgradeButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetUnlockButton" to="Panel/VBoxContainer/Magnet" method="_on_magnet_unlock_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Magnet/MagnetFirstUnlock" to="Panel/VBoxContainer/Magnet" method="_on_magnet_first_unlock_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/AutoCollect/AutoCollectUnlock" to="Panel/VBoxContainer/AutoCollect" method="_on_auto_collect_unlock_pressed"]

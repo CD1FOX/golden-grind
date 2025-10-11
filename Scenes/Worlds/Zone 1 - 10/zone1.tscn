@@ -48,7 +48,7 @@ text = "Magnet Coins"
 [node name="AutoCollect" type="CheckButton" parent="SideUI/Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Auto colect"
+text = "Auto collect "
 
 [node name="VisibilityButton" type="Button" parent="SideUI"]
 layout_mode = 0
