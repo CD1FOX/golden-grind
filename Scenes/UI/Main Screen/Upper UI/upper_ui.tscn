@@ -43,6 +43,26 @@ oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(350, 150)
 
+[node name="Rebirth" type="Button" parent="."]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 9.0
+offset_right = 521.0
+offset_bottom = 55.0
+text = "Rebirth (Zone 10 Required)"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Rebirth"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(350, 150)
+ok_button_text = "Confirm"
+dialog_text = "Buy new zone for 500 Coins?"
+
+[node name="AcceptDialog" type="AcceptDialog" parent="Rebirth"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(350, 150)
+
 [node name="Menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 956.0
@@ -86,3 +106,5 @@ layout_mode = 0
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="BuyZone" to="." method="_on_buy_zone_pressed"]
 [connection signal="confirmed" from="BuyZone/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="Rebirth" to="." method="_on_rebirth_pressed"]
+[connection signal="confirmed" from="Rebirth/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

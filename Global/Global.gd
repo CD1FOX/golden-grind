@@ -1,6 +1,6 @@
 extends Node
 
-var coin = 500000
+var coin = 500000000000000
 
 #Zones
 var last_zone_level = 1

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dwqg77c1lhf5e" path="res://Scenes/UI/Shop/auto_collect.gd" id="5_riy28"]
 
 [node name="ShopPopup" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

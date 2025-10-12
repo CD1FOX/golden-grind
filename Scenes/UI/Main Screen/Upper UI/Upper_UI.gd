@@ -6,6 +6,7 @@ extends Control
 @onready var shop_popup = $ShopPopup
 @onready var confirmation_dialog = $BuyZone/ConfirmationDialog
 @onready var accept_dialog = $BuyZone/AcceptDialog
+@onready var rebirth_button = $Rebirth
 
 @onready var G = Global
 
@@ -14,6 +15,11 @@ func _process(_delta: float) -> void:
 	speed_label.text = "Speed: %d" % G.speed
 	zone_level.text = "Zone: %d" % G.current_zone_level
 	confirmation_dialog.dialog_text = "Buy new zone for %d Coins?" % G.zone_price
+	
+	if G.current_zone_level >= 10:
+		rebirth_button.disabled = false
+	else:
+		rebirth_button.disabled = true
 
 func _on_shop_pressed() -> void:
 	shop_popup.visible = !shop_popup.visible
@@ -42,3 +48,7 @@ func _on_confirmation_dialog_confirmed() -> void:
 	else:
 		accept_dialog.dialog_text = "Not enough coins! (need %d coins more)" % (G.coin - G.zone_price)
 		accept_dialog.visible = true
+
+
+func _on_rebirth_pressed() -> void:
+	pass # Replace with function body.
